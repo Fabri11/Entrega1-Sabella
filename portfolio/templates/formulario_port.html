@@ -1,0 +1,11 @@
+
+
+<form action="/formulario" method="POST">{% csrf_token %}
+
+    <p>Proyecto: <input type="text" name="proyecto"></p>
+    <p>descripcion: <input type="text" name="descripcion"></p>
+    <p>url: <input type="text" name="url"></p>
+
+    <input type="submit" value="Enviar">
+
+</form>

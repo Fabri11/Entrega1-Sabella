@@ -3,7 +3,12 @@
 {% for project in projects %}
 
     <div>
-        <h3>{{project.titulo}}</h3>
+        <h2>{{project.titulo}}</h2>
+
+        <p>{{project.descripcion}}</p>
+        <img src="{{project.imagen}}" alt="{{project.titulo}}">
+        <a href="{{project.url}}"></a>
     </div>
+
 
 {% endfor %}
