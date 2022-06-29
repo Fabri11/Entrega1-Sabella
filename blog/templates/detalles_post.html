@@ -1,8 +1,17 @@
-<h1>Detalles del posteo "{{post.title}}"</h1>
+{% extends 'layout.html' %}
 
+{% block content %}
 
-<h2>{{post.title}}</h2>
-<h3>{{post.data}}</h3>
+<h1>{{post.title}}</h1>
+<h3 class="my-2 h5 text-muted">{{post.data}}</h3>
 
-<p>{{post.descripcion}}</p>
-<img src="{{post.imagen}}" alt="{{post.title}}">
+<div class="text-center">
+    <div class="my-3">
+        <p>{{post.descripcion|safe}}</p>
+    </div>
+
+    <h4><strong>¡Saludos! :)</strong></h4>
+    <img src="{{post.imagen.url}}" alt="{{post.title}}" class="img-fluid">
+</div>
+
+{% endblock %}

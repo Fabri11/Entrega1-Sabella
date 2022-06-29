@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<p>Buscando Proyecto...{{titulo}}</p>
+
+{% if proyecto %}
+
+    <ul>
+        {% for project in projects %}
+
+            <li> {{project.titulo}} </li>
+            <li> {{project.url}} </li>
+
+        {% endfor %}
+    </ul>
+    <p>Proyecto encontrado: {{pro}}</p>
+
+{% endif %}
+
+
+
+{% endblock %}

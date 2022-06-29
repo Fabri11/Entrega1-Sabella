@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+
 
 {% load static %}
 
@@ -6,17 +6,16 @@
 
 {% if miFormulario.errors %}
 
-<p>No se pudieron cargar los datos...</p>
+    <p>Algo no anda bien ! :(</p>
 
 {% endif %}
 
 <form action="" method="POST">{% csrf_token %}
-
     <table>
         {{miFormulario.as_table}}
     </table>
 
-    <input class="btn btn-secondary" type="submit" value="Enviar">
+    <input type="submit" value="Enviar">
 
 </form>
 

@@ -14,3 +14,4 @@ class Project(models.Model):
     imagen = ImageField(upload_to = "portfolio/imagenes/")
     url = URLField(blank=True)
 
+

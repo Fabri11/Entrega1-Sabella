@@ -23,8 +23,9 @@ from portfolio import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('blog/', include('blog.urls')),
-    path('formulario_port', views.formulario_portfolio, name='formulario')
+    path('', include('blog.urls')),
+    path('formulario_port', views.proyectosForm, name='formulario'),
+    # path('buscar/', views.Buscar)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

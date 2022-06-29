@@ -2,16 +2,25 @@
 from django.shortcuts import render
 from .models import Project
 from portfolio.forms import FormularioPortafolio
+from django.db.models import Q
 
 # Create your views here.
 
 def home(request):
-    projects = Project.objects.all()
-
+    queryset = request.GET.get("buscar")
+    print(queryset)
+    projects = Project.objects.filter()
+    if queryset:
+        projects = Project.objects.filter(
+            Q(titulo__icontains = queryset) |
+            Q(descripcion__icontains = queryset)
+        ).distinct()
 
     return render(request, 'home.html', {'projects' : projects})
 
-def formulario_portfolio(request):
+
+
+def proyectosForm(request):
 
     if request.method == 'POST':
 
@@ -21,13 +30,14 @@ def formulario_portfolio(request):
 
         if miFormulario.is_valid:
 
-            informacion - miFormulario.cleaned_data
+            informacion = miFormulario.cleaned_data
 
-            proyec = Project(proyecto = informacion['proyecto'], descripcion=informacion['descripcion'], url=informacion['url'])
-            proyec.save()
+            project = Project(titulo = informacion['proyecto'], descripcion=informacion['descripcion'], imagen=informacion['imagen'] ,url=informacion['url'])
+            project.save()
 
             return render(request, 'home.html')
 
     else:
         miFormulario= FormularioPortafolio()
     return render(request, 'formulario_port.html', {'miFormulario':miFormulario})
+
